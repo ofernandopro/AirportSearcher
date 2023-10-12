@@ -1,24 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Search AirportsVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchAirportsVC" id="BYZ-38-t0r" customClass="SearchAirportsVC" customModule="AirportSearcher" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQc-xP-af8">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="180"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1DH-So-G9g">
+                                        <rect key="frame" x="20" y="116" width="353" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="c3f-Lh-6uh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92549019607843142" green="0.1760923119247699" blue="0.30249537314925973" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="1DH-So-G9g" firstAttribute="leading" secondItem="UQc-xP-af8" secondAttribute="leading" constant="20" id="I1T-f8-TlU"/>
+                                    <constraint firstAttribute="trailing" secondItem="1DH-So-G9g" secondAttribute="trailing" constant="20" id="Lzm-9p-b61"/>
+                                    <constraint firstAttribute="bottom" secondItem="1DH-So-G9g" secondAttribute="bottom" constant="14" id="p5u-xj-P1r"/>
+                                    <constraint firstAttribute="height" constant="180" id="pAd-O9-XZA"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iZZ-Zd-SBQ">
+                                <rect key="frame" x="0.0" y="180" width="393" height="672"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UQc-xP-af8" secondAttribute="trailing" id="KA2-Xk-ZX2"/>
+                            <constraint firstItem="iZZ-Zd-SBQ" firstAttribute="top" secondItem="UQc-xP-af8" secondAttribute="bottom" id="Ljx-2f-VGN"/>
+                            <constraint firstAttribute="bottom" secondItem="iZZ-Zd-SBQ" secondAttribute="bottom" id="fyk-0a-NOR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iZZ-Zd-SBQ" secondAttribute="trailing" id="iiN-Yt-gc8"/>
+                            <constraint firstItem="iZZ-Zd-SBQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kGY-Kh-iZW"/>
+                            <constraint firstItem="UQc-xP-af8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rgs-81-eX8"/>
+                            <constraint firstItem="UQc-xP-af8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zjI-KU-Art"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="roundedView" destination="UQc-xP-af8" id="kE8-Qp-iqz"/>
+                        <outlet property="searchTextField" destination="1DH-So-G9g" id="4Ze-0m-owc"/>
+                        <outlet property="tableView" destination="iZZ-Zd-SBQ" id="XPv-90-Vb7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="22" y="4"/>
+        </scene>
+        <!--AirportsVC-->
+        <scene sceneID="lSu-G2-Dsd">
+            <objects>
+                <viewController storyboardIdentifier="AirportsVC" id="6U4-Hv-x4J" customClass="AirportsVC" customModule="AirportSearcher" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mEZ-Xp-3CH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lqZ-vl-MfQ">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Dnq-Or-dw9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="lqZ-vl-MfQ" secondAttribute="bottom" id="9uD-UX-KvG"/>
+                            <constraint firstItem="lqZ-vl-MfQ" firstAttribute="leading" secondItem="Dnq-Or-dw9" secondAttribute="leading" id="GKz-Nq-VRm"/>
+                            <constraint firstItem="Dnq-Or-dw9" firstAttribute="trailing" secondItem="lqZ-vl-MfQ" secondAttribute="trailing" id="KlN-Xn-Gh0"/>
+                            <constraint firstItem="lqZ-vl-MfQ" firstAttribute="top" secondItem="Dnq-Or-dw9" secondAttribute="top" id="YYx-s9-7Ri"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="lqZ-vl-MfQ" id="t6O-xZ-PW4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p4e-dp-FNQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="814.50381679389307" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
